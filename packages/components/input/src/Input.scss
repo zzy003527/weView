@@ -1,0 +1,85 @@
+$common-border: 1px solid #d3d3d3;
+$color-font: #505050;
+
+@mixin icon-style {
+    top: 50%;
+    right: calc($font-size * 0.5);
+    transform: translateY(-50%);
+    font-size: $font-size;
+}
+
+.input-primary {
+    display: inline-block;
+
+    input {
+        box-sizing: border-box;
+        width: $width;
+        padding: calc($font-size * 0.4) calc($font-size * 0.5);
+        border: $common-border;
+        line-height: 1;
+        font-size: $font-size;
+        outline: none;
+        color: $color-font;
+        border-radius: calc($font-size * 0.4);
+
+        &:focus {
+            border-color: $border-color;
+
+        }
+    }
+}
+
+.input-disabled {
+    input {
+        background-color: $common-border;
+        opacity: 0.8;
+        cursor: no-drop;
+    }
+}
+
+.input-clearable {
+    position: relative;
+
+    .clear-icon {
+        position: absolute;
+        @include icon-style;
+        opacity: 0.5;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.input-password {
+    position: relative;
+    color: transparent;
+    white-space: nowrap;
+
+    .password-icon {
+        position: absolute;
+        @include icon-style;
+        opacity: 0.8;
+        user-select: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.input-limit {
+    position: relative;
+    opacity: 1;
+
+    .limit-tag {
+        position: absolute;
+        @include icon-style;
+        opacity: 0.8;
+        user-select: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
